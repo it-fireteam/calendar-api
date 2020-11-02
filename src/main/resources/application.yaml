@@ -1,0 +1,11 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: calendar-api
+
+url:
+  consultant: http://www.consultant.ru/law/ref/calendar/proizvodstvennye/

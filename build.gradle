@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'ru.lmkn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	// jsoup HTML parser library @ https://jsoup.org/
+	compile 'org.jsoup:jsoup:1.13.1'
+	// Если нужен XML
+	compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+	annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+	useJUnitPlatform()
+}
